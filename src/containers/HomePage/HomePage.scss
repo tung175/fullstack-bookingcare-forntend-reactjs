@@ -1,0 +1,180 @@
+ //restart slick css
+ .slick-prev {
+    border: 2px solid #eceaca !important;
+    // position: relative !important;
+    left: -10 !important;
+    z-index: 1000;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff;
+
+    &:hover {
+        background: #d7d7d7 !important;
+    }
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: FontAwesome !important;
+    color: red !important;
+    // content: '' !important;
+}
+
+.slick-next {
+    border: 2px solid #eceaca !important;
+    // position: relative !important;
+    right: 10 !important;
+    z-index: 1000;
+    height: 48px !important;
+    width: 44px !important;
+    background: #fff;
+
+    &:hover {
+        background: #d7d7d7 !important;
+    }
+
+}
+
+.slick-disabled {
+    display: none !important;
+}
+
+.section-share {
+    &.section-specialty {
+        background: #f5f5f5;
+    }
+    &.section-outstanding-doctor{
+        background: #f5f5f5;
+    }
+    &.section-about {
+        border: 1px solid red;
+        height: 500px;
+    }
+
+
+    .section-body {
+        // border: 1px solid black;
+        .section-customize {
+            .bg-imge {
+                width: 278px;
+                height: 150px;
+                background-position: center center;
+                background-size: cover;
+                background-color: #eee;
+                background-repeat: no-repeat;
+                &.section-specialty {
+                    background-image: url('../../assets/specialty/co-xuong-khop.jpg');
+                }
+                &.section-medical-facility {
+                    background-image: url('../../assets/medical-facility/104922-logo-med-tai-ha-noi--01.png');
+                    background-size: contain;
+                    background-color: white;
+                }
+                &.section-outstanding-doctor {
+                    // background-image: url('../../assets/outstandingdoctor/103848anh-dai-dien-bs.jpg');
+                    background-size: contain;
+                    background-color: white;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                }
+                &.section-handbook {
+                    background-image: url('../../assets/specialty/co-xuong-khop.jpg');
+                }
+                
+            }
+        }
+    }
+}
+
+.section-share{
+    height: 300px;
+    // border: 1px solid red;
+    .section-container {
+        margin: 0 130px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            // border: 1px solid green;
+            padding-top: 25px;
+            margin-bottom: 25px;
+
+            .title-section {
+                font-size: 22px;
+                font-weight: 500;
+            }
+
+            .btn-section {
+                border: none;
+                padding: 10px 15px;
+                outline: none;
+                display: block;
+                background: #ebebeb;
+                float: right;
+                cursor: pointer;
+                color: black;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: #fff;
+                    background: #f7d800;
+                }
+            }
+        }
+    }
+}
+
+.section-outstanding-doctor {
+    .outer-bg {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .section-customize {
+        padding: 5px;
+
+        cursor: pointer;
+        .customize-border {
+            border: 1px solid orange;
+            padding: 20px;
+        }
+    }
+}
+
+.home-footer {
+    text-align: center;
+    padding-top: 10px;
+
+    a {
+        text-decoration: unset;
+    }
+}
+
+.section-about {
+    padding: 0 130px;
+
+    .section-about-header {
+        padding: 20px 10px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .section-about-content {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+
+        .content-left {
+            width: 60%;
+        }
+        .content-right {
+            width: 40%;
+            font-style: italic;
+        }
+    }
+}
+
+
+
