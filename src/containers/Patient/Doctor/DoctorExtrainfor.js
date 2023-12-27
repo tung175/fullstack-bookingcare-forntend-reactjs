@@ -14,7 +14,16 @@ class DoctorExtraInfor extends Component {
     };
   }
 
-  componentDidMount() {}
+  async componentDidMount() {
+    if (this.props.doctorIdFromParent){
+      let res = await getExtraInforDoctorByIdService(this.props.doctorIdFromParent)
+      if (res && res.errCode === 0) {
+        this.setState({
+          extraInfor: res.data
+        })
+      }
+    }
+  }
 
   async componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.language !== prevProps.language) {
@@ -84,7 +93,7 @@ class DoctorExtraInfor extends Component {
                       suffix={"$"}
                     />
                   )}
-                <span onClick={() => this.showHideDetailInfor(true)}>
+                <span className="more" onClick={() => this.showHideDetailInfor(true)}>
                   <FormattedMessage id="patient.extra-infor-doctor.detail" />
                 </span>
               </div>

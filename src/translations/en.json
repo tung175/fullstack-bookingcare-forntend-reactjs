@@ -9,7 +9,7 @@
         "fee": "Examination Package",
         "check-health": "General health check",
         "support": "Support",
-        "welcome": "Welcome"
+        "welcome": "Welcome,"
 
     },
     "banner": {
@@ -66,16 +66,20 @@
             "manage-doctor": "Doctor management",
             "manage-admin": "Admin management",
             "crud": "crud user",
-            "crud-redux": "redux",
+            "crud-redux": "Manage account user",
             "clinic": "Clinic",
             "manage-clinic": "Clinic management",
             "specialty": "Specialty",
             "manage-specialty": "Specialty management",
             "handbook": "Handbook",
-            "manage-handbook": "Handbook management"
+            "manage-handbook": "Handbook management",
+            "list-clinic": "List clinic",
+            "list-specialty": "List specialty",
+            "list-handbook": "List handBook"
         },
         "doctor": {
-            "manage-schedule": "Manage Doctor's schedule"
+            "manage-schedule": "Manage Doctor's schedule",
+            "manage-patient": "Manage Doctor's patient"
         }
     },
     "system": {
@@ -173,7 +177,13 @@
     },
     "homepage": {
         "outstanding-doctor": "Last week's featured doctor",
-        "more-infor": "More Infor"
+        "more-infor": "More Infor",
+        "specialty-popular": "Popular Specialties",
+        "clinic":"Clinic",
+        "handBook": "Hand book",
+        "search": "Looking for information ...",
+        "license": "2023 Kyu Tùng. More information, please visit my website",
+        "click": "Click here"
     },
     "manage-schedule": {
         "title": "manage doctor's examination plan",
@@ -206,9 +216,16 @@
             "btnConfirm": "Confirm",
             "btnCancel": "Cancel",
             "priceBooking": "Free booking",
-            "price": "Price",
+            "price": "Price ",
             "phoneNumber": "Phone number",
             "chooseGender": "Choose Gender"
+        },
+        "verify-email": {
+            "confirm": "Appointment confirmed successfully",
+            "cancel": "Appointment does not exist or has been confirmed"
+        },
+        "profile-doctor": {
+            "more": "See more"
         }
     },
     "admin":{
@@ -223,7 +240,46 @@
             "province": "Province",
             "nameClinic": "Clinic's name",
             "addressClinic": "Clinic's address",
-            "note": "Note"
+            "note": "Note",
+            "specialty": "Specialty",
+            "select-clinic": "Clinic"
+        },
+        "manage-patient": {
+            "manage-patient-schedule": "Manage schedule Doctor's patient",
+            "choose-date":"Choose Date",
+            "id": "ID",
+            "time": "Time",
+            "fullName":"Full name",
+            "address":"Address",
+            "gender":"Gender",
+            "actions": "Actions",
+            "btn-confirm": "Confirm",
+            "noData": "No Data",
+            "remedy": {
+                "title": "Send a successful invoice",
+                "email-patient": "Email patient",
+                "select-prescription": "Select prescription",
+                "btn-send": "Send",
+                "btn-Cancel": "Cancel"
+            }
+        },
+        "manage-specialty": {
+            "title": "Specialty management",
+            "name": "Specialty name",
+            "image": "Specialty image",
+            "btn-save": "Save"
+        },
+        "manage-clinic": {
+            "title": "Clinic management",
+            "name": "Clinic name",
+            "image": "Clinic image",
+            "address": "Address",
+            "btn-save": "Save"
+        },
+        "manage-handbook": {
+            "title": "Handbook management",
+            "name": "Handbook name",
+            "btn-save": "Save"
         }
     }
 }

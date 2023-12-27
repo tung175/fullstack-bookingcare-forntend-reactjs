@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 // import "./HomeFooter.scss";
 // import Slider from "react-slick";
@@ -10,9 +11,9 @@ class HomeFooter extends Component {
       <>
         <div className="home-footer">
           <p>
-            &copy; 2023 Kyu Tùng. More information, please visit my website
+            &copy; <FormattedMessage id="homepage.license"/>
             <a href="#" target="_blank">
-              <> </>Click here
+              <> </><FormattedMessage id="homepage.click"/>
             </a>
           </p>
         </div>

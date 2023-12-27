@@ -156,9 +156,7 @@ class UserRedux extends Component {
       positionId: this.state.position,
       avatar: this.state.avatar 
     })
-  } else {
-    
-  }
+  } 
 
     // console.log("check before submit check state ", this.state);
   };
@@ -232,18 +230,17 @@ class UserRedux extends Component {
       avatar,
       gender,
     } = this.state;
-    let { language, isLoadingGender } = this.props;
+    let { language } = this.props;
     // console.log("prop from redux", this.props.genderRedux);
     // console.log("check state", this.state);
     return (
       <>
         <div className="user-redux-container">
-          <div className="user-redux-title">redux learn</div>
           <div className="user-redux-body">
             <div className="container">
               <div className="row">
                 <div className="col-12 my-3">
-                  <FormattedMessage id="manage-user-redux.add" />
+                  {/* <FormattedMessage id="manage-user-redux.add" /> */}
                 </div>
                 <div className="col-3">
                   <label>

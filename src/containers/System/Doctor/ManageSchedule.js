@@ -17,7 +17,7 @@ class ManageSchedule extends Component {
         this.state = {
             listDoctors: [],
             selectedDoctor: {},
-            currentDate: '',
+            currentDate: moment(new Date()).startOf("day").valueOf(),
             rangeTime: [],
             minDate: moment().subtract(1, 'days')
         }
@@ -53,13 +53,12 @@ class ManageSchedule extends Component {
         let {language} = this.props
         if (inputData && inputData.length > 0) {
             inputData.map((item, index) => {
-                let object = {}
-                let labelVi = `${item.lastName} ${item.firstName}`
-                let labelEn = `${item.firstName} ${item.lastName}`
-                object.label = language === LANGUAGE.VI ? labelVi : labelEn
-                object.value = item.id
-
-                result.push(object)
+                let object = {};
+                let labelVi = `${item.firstName} ${item.lastName}`;
+                let labelEn = `${item.lastName} ${item.firstName}`;
+                object.label = language === LANGUAGE.VI ? labelVi : labelEn;
+                object.value = item.id;
+                result.push(object);
             })
         }
 
@@ -72,9 +71,9 @@ class ManageSchedule extends Component {
         })
     }
 
-    handleOnChangeDatePicker = (data) => {
+    handleOnChangeDatePicker = (date) => {
         this.setState({
-            currentDate: data[0]
+            currentDate: date[0]
         })
     }
 
@@ -143,7 +142,7 @@ class ManageSchedule extends Component {
     }
   render() {
 //    console.log('check state: ', this.state);
-   let {rangeTime} = this.state
+   let {rangeTime, currentDate} = this.state
    let {language} = this.props
    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
     return (
@@ -166,9 +165,10 @@ class ManageSchedule extends Component {
                         <label> <FormattedMessage id="manage-schedule.choose-date" /></label>
                         <DatePicker
                             onChange = {this.handleOnChangeDatePicker}
-                            options = {this.state.listDoctors}
+                            // options = {this.state.listDoctors}
                             className = "form-control"
                             minDate = {yesterday}
+                            value={currentDate}
                         />
                     </div>
                     <div className="col-12 pick-hour-container">

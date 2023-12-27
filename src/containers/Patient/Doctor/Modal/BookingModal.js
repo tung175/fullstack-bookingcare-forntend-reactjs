@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { postBookAppointmentService } from "../../../../services/userService";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
+import LoadingOverlay from "react-loading-overlay";
 class BookingModal extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +27,7 @@ class BookingModal extends Component {
       doctorId: "",
       genders: "",
       timeType: "",
+      isShowLoading: false
     };
   }
 
@@ -62,6 +64,7 @@ class BookingModal extends Component {
       if (this.props.dataTime && !_.isEmpty(this.props.dataTime)) {
         let doctorId = this.props.dataTime.doctorId;
         let timeType = this.props.dataTime.timeType;
+        // console.log("check doctorid, timtype didUpdate:", this.props.dataTime.doctorId, this.props.dataTime.timeType);
         this.setState({
           doctorId: doctorId,
           timeType: timeType,
@@ -93,13 +96,14 @@ class BookingModal extends Component {
   buildTimeBooking = (dataTime) => {
     let {language} = this.props
     if (dataTime && !_.isEmpty(dataTime)) {
-      let time = language === this.props.LANGUAGE.VI ? dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn
+      let time = language === LANGUAGE.VI ? 
+      dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn
 
-      let date = language === LANGUAGE.Vi ? 
+      let date = language === LANGUAGE.VI ? 
             moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
             :
             moment.unix(+dataTime.date / 1000).local('en').format('ddd - DD/MM/YYYY')
-    return `${time} ${date}`
+    return `${time} - ${date}`
     }
     return ''
   }
@@ -107,7 +111,7 @@ class BookingModal extends Component {
   buildDoctorName = (dataTime) => {
     let {language} = this.props
     if (dataTime && !_.isEmpty(dataTime)) {
-      let name = language === LANGUAGE.Vi ? 
+      let name = language === LANGUAGE.VI ? 
             `${dataTime.doctorData.firstName} ${dataTime.doctorData.lastName}`
             :
             `${dataTime.doctorData.lastName} ${dataTime.doctorData.firstName}`
@@ -118,9 +122,13 @@ class BookingModal extends Component {
   }
 
   handleConfirmBooking = async () => {
+    this.setState({
+      isShowLoading: true
+    })
     let date = new Date(this.state.birthday).getTime();
     let timeString = this.buildTimeBooking(this.props.dataTime)
     let doctorName = this.buildDoctorName(this.props.dataTime)
+
     let res = await postBookAppointmentService({
       fullName: this.state.fullName,
       phoneNumber: this.state.phoneNumber,
@@ -128,7 +136,8 @@ class BookingModal extends Component {
       selectedGender: this.state.selectedGender.value,
       address: this.state.address,
       reason: this.state.reason,
-      date: date,
+      date: this.props.dataTime.date,
+      birthday: date,
       doctorId: this.state.doctorId,
       // genders: this.state.genders,
       timeType: this.state.timeType,
@@ -136,6 +145,10 @@ class BookingModal extends Component {
       timeString: timeString,
       doctorName: doctorName
     });
+
+    this.setState({
+      isShowLoading: false
+    })
     if (res && res.errCode === 0) {
       toast.success("Booking a new appointment succeeded!");
       this.props.closeBookingClose();
@@ -150,9 +163,14 @@ class BookingModal extends Component {
     if (dataTime && !_.isEmpty(dataTime)) {
       doctorId = dataTime.doctorId;
     }
-    console.log("check data time", dataTime);
+    // console.log("check props modal:", this.props);
+    // console.log("check data time", dataTime);
     return (
-      <>
+      <LoadingOverlay
+      active={this.state.isShowLoading}
+      spinner
+      text='Loading ...'>
+        <>
         <Modal
           isOpen={isOpenModalBooking}
           className={"booking-modal-container"}
@@ -174,6 +192,8 @@ class BookingModal extends Component {
                   doctorId={doctorId}
                   isShowDescriptionDoctor={false}
                   dataTime={dataTime}
+                  isShowLinkDetail={false}
+                  isShowPrice={true}
                 />
               </div>
               <div className="row">
@@ -257,7 +277,7 @@ class BookingModal extends Component {
                     value={this.state.selectedGender}
                     onChange={this.handleOnchangeSelect}
                     options={this.state.genders}
-                placeholder={<FormattedMessage id="admin.manage-doctor.payment"/>}
+                placeholder={<FormattedMessage id="patient.booking-modal.chooseGender"/>}
 
                   />
                 </div>
@@ -280,6 +300,7 @@ class BookingModal extends Component {
           </div>
         </Modal>
       </>
+      </LoadingOverlay>
     );
   }
 }

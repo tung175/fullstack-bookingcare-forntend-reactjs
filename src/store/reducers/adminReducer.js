@@ -9,7 +9,10 @@ const initialState = {
     topDoctors: [],
     allDoctors: [],
     allScheduleTime: [],
-    allRequiredDoctorInfor: []
+    allRequiredDoctorInfor: [],
+    allClinic: [],
+    allSpecialty: [],
+    allHandbook: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -180,6 +183,66 @@ const adminReducer = (state = initialState, action) => {
         case actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_FAILED:
             state.isLoadingGender = false
             state.allRequiredDoctorInfor = []
+            return {
+                ...state,
+            }
+         //clinic
+         case actionTypes.FETCH_ALL_CLINIC_START:
+            state.allClinic = {...state}
+            state.isLoadingGender = true
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ALL_CLINIC_SUCCESS:
+            state.isLoadingGender = false
+            state.allClinic = action.data
+            // console.log("check state redux: ", state, action);
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_CLINIC_FAILED:
+            state.isLoadingGender = false
+            state.allClinic = []
+            return {
+                ...state,
+            }
+        //handbook
+         case actionTypes.FETCH_ALL_HANDBOOK_START:
+            state.allHandbook = {...state}
+            state.isLoadingGender = true
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ALL_HANDBOOK_SUCCESS:
+            state.isLoadingGender = false
+            state.allHandbook = action.data
+            // console.log("check state redux: ", state, action);
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_HANDBOOK_FAILED:
+            state.isLoadingGender = false
+            state.allHandbook = []
+            return {
+                ...state,
+            }   
+        //specialty
+        case actionTypes.FETCH_ALL_SPECIALTY_START:
+            state.allSpecialty = {...state}
+            state.isLoadingGender = true
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_ALL_SPECIALTY_SUCCESS:
+            state.isLoadingGender = false
+            state.allSpecialty = action.data
+            // console.log("check state redux: ", state, action);
+            return {
+                ...state
+            }
+        case actionTypes.FETCH_ALL_SPECIALTY_FAILED:
+            state.isLoadingGender = false
+            state.allSpecialty = []
             return {
                 ...state,
             }

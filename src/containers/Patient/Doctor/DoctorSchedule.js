@@ -22,6 +22,12 @@ class DoctorSchedule extends Component {
     async componentDidMount() {
        let {language} = this.props
         let allDays = this.getArrDays(language)
+        if (this.props.doctorIdFromParent) {
+            let res = await getScheduleDoctorByDateService(this.props.doctorIdFromParent, allDays[0].value)
+            this.setState({
+                allAvailableTime: res.data ? res.data : []
+            })
+        }
         this.setState({
             allDays: allDays
         })
@@ -148,7 +154,7 @@ class DoctorSchedule extends Component {
                         <span>
                             <FormattedMessage id="patient.detail-doctor.choose"/>
                             <i className="far fa-hand-point-up"></i>
-                            <FormattedMessage id="patient.detail-doctor.no-schedule"/>
+                            <FormattedMessage id="patient.detail-doctor.book-free"/>
                         </span>
                     </div>
                      </>

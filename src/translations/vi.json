@@ -9,7 +9,7 @@
         "fee": "Gói Khám",
         "check-health": "Khám sức khoẻ tổng quát",
         "support": "Hỗi trợ",
-        "welcome": "Xin chào"
+        "welcome": "Xin chào,"
     },
     "banner": {
         "title1": "NỀN TẢNG Y TẾ",
@@ -64,17 +64,21 @@
             "manage-user": "Quản lý người dùng",
             "manage-doctor": "Quản lý bác sĩ",
             "manage-admin": "Quản lý Admin",
-            "crud": "crud user",
-            "crud-redux": "redux",
+            "crud": "Quản lý danh sách người dùng",
+            "crud-redux": "Quản lý tài khoản người dùng",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lý phòng khám",
             "specialty": "Chuyên khoa",
             "manage-specialty": "Quản lý chuyên khoa",
             "handbook": "Cẩm nang",
-            "manage-handbook": "Quản lý cẩm nang"
+            "manage-handbook": "Quản lý cẩm nang",
+            "list-clinic": "Danh sách phòng khám",
+            "list-specialty": "Danh sách Chuyên khoa",
+            "list-handbook": "Danh sách cẩm nang"
         },
         "doctor": {
-            "manage-schedule": "Quản lý kế hoạch của bác sĩ"
+            "manage-schedule": "Quản lý kế hoạch của bác sĩ",
+            "manage-patient": "Quản lý bệnh nhân khám bệnh"
         }
     },
     "system": {
@@ -172,7 +176,13 @@
     },
     "homepage": {
         "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
-        "more-infor": "Xem thêm"
+        "more-infor": "Xem thêm",
+        "specialty-popular": "Chuyên khoa phổ biến",
+        "clinic":"Phòng khám",
+        "handBook": "Cẩm nang",
+        "search": "Tìm kiếm chuyên gia khám bệnh",
+        "license": "2023 Kyu Tùng. Để xem thêm thông tin, hãy truy cập trang Web của tôi",
+        "click": "Ấn vào đây"
     },
     "manage-schedule": {
         "title": "Quản lý kế hoạch khám bệnh của bác sĩ",
@@ -183,13 +193,13 @@
     "patient": {
         "detail-doctor": {
             "schedule": "Lịch khám",
-            "no-schedule": "Bác sĩ không có lịch",
+            "no-schedule": " Bác sĩ không có lịch",
             "choose": "Chọn",
             "book-free": " và đặt (miễn phí)"
         },
         "extra-infor-doctor": {
             "text-address": "Địa chỉ phòng khám",
-            "price": "Giá khám",
+            "price": "Giá khám ",
             "detail": "Xem chi tiết",
             "payment": "Khách hàng có thể thanh toán bằng hình thức: ",
             "hide-price": "Ẩn giá"
@@ -204,10 +214,17 @@
             "gender":"Giới tính",
             "btnConfirm": "Xác nhận",
             "btnCancel": "Huỷ",
-            "priceBooking": "Miễn phí đặt lịch",
-            "price": "Giá khám",
+            "priceBooking": " Miễn phí đặt lịch",
+            "price": "Giá khám ",
             "phoneNumber": "Số điện thoại",
-            "chooseGender": "Choose Gender"
+            "chooseGender": "Chọn giới tính"
+        },
+        "verify-email": {
+            "confirm": "Lịch hẹn xác nhận thành công",
+            "cancel": "Lịch hẹn không tồn tại hoặc đã đuọc xác nhận"
+        },
+        "profile-doctor": {
+            "more": "Xem thêm"
         }
     },
     "admin":{
@@ -222,7 +239,46 @@
             "province": "Tỉnh thành",
             "nameClinic": "Tên phòng khám",
             "addressClinic": "Địa chỉ phòng khám",
-            "note": "Ghi chú"
+            "note": "Ghi chú",
+            "specialty": "Chọn chuyên khoa",
+            "select-clinic": "chọn phòng khám"
+        },
+        "manage-patient": {
+            "manage-patient-schedule": "Quản lý lịch khám bệnh của bác sĩ",
+            "choose-date":"Chọn ngày",
+            "id": "STT",
+            "time": "Thời gian",
+            "fullName": "Họ và Tên",
+            "address": "Địa chỉ",
+            "gender": "Giới tính",
+            "actions": "Thao tác",
+            "btn-confirm": "Xác nhận",
+            "noData": "Không có dữ liệu bệnh nhân",
+            "remedy": {
+                "title": "Gửi hoá đơn thành công",
+                "email-patient": "Email của bệnh nhân",
+                "select-prescription": "Chọn đơn thuốc",
+                "btn-send": "Gửi",
+                "btn-Cancel": "Huỷ"
+            }
+        },
+        "manage-specialty": {
+            "title": "Quản lý chuyên khoa",
+            "name": "Tên chuyên khoa",
+            "image": "Ảnh chuyên khoa",
+            "btn-save": "Lưu"
+        },
+        "manage-clinic": {
+            "title": "Quản lý phòng khám",
+            "name": "Tên phòng khám",
+            "image": "Ảnh phòng khám",
+            "address": "Địa chỉ phòng khám",
+            "btn-save": "Lưu"
+        },
+        "manage-handbook": {
+            "title": "Quản lý cẩm nang",
+            "name": "Tiêu đề cảm năng",
+            "btn-save": "Lưu"
         }
     }
 }

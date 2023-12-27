@@ -6,6 +6,8 @@ import "./DetailDoctor.scss";
 import { getDetailInforDoctorService } from "../../../services/userService";
 import DoctorSchedule from "./DoctorSchedule";
 import DoctorExtrainfor from "./DoctorExtrainfor";
+// import LikeAndShare from '../SocialPlugin/LikeAndShare'
+// import Comment from '../SocialPlugin/Comment'
 class DetailDoctor extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +43,7 @@ class DetailDoctor extends Component {
   render() {
     let { language } = this.props;
     let { detailDoctor } = this.state;
-    console.log("check state doctor: ", detailDoctor.positionData);
+    // console.log("check state doctor: ", detailDoctor.positionData);
 
     let nameVi = "",
       nameEn = "";
@@ -50,6 +52,9 @@ class DetailDoctor extends Component {
       nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.lastName} ${detailDoctor.firstName}`;
       nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
     }
+
+    let currentURL = process.env.REACT_APP_IS_LOCALHOST === 1 ?
+      '' : window.location.href
     return (
       <>
         <HomeHeader isShowBanner={false} />
@@ -70,9 +75,14 @@ class DetailDoctor extends Component {
               <div className="down">
                 {detailDoctor &&
                   detailDoctor.Markdown &&
-                  detailDoctor.Markdown.description && (
+                  detailDoctor.Markdown.description && 
                     <span>{detailDoctor.Markdown.description}</span>
-                  )}
+                  }
+                  <div className="like-share-plugin">
+                    {/* <LikeAndShare
+                      dataHref={currentURL}
+                    /> */}
+                  </div>
               </div>
             </div>
           </div>
@@ -95,7 +105,12 @@ class DetailDoctor extends Component {
                 ></div>
               )}
           </div>
-          <div className="comment-doctor"></div>
+          <div className="comment-doctor">
+            {/* <Comment
+              dataHref={currentURL}
+              width={'100%'}
+            /> */}
+          </div>
         </div>
       </>
     );

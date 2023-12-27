@@ -7,6 +7,7 @@ import {LANGUAGE} from "../../../utils"
 import _ from "lodash"
 import moment from "moment";
 import { FormattedMessage } from "react-intl";
+import {Link} from 'react-router-dom'
 class ProfileDoctor extends Component {
   constructor(props) {
     super(props);
@@ -64,7 +65,7 @@ class ProfileDoctor extends Component {
 
   render() {
     let {dataProfile} = this.state
-    let {language, isShowDescriptionDoctor, dataTime} = this.props
+    let {language, isShowDescriptionDoctor, dataTime, isShowPrice, isShowLinkDetail, doctorId} = this.props
     // console.log("check state profile: ", this.state);
 
     let nameVi = '', nameEn = ''
@@ -73,7 +74,7 @@ class ProfileDoctor extends Component {
         nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.lastName} ${dataProfile.firstName}`
     }
 
-    console.log("Check props: datatime:", dataTime);
+    // console.log("Check props: datatime:", dataTime);
     return (
       <>
         <div className="profile-doctor-container">
@@ -82,11 +83,11 @@ class ProfileDoctor extends Component {
 
                 </div>
                 <div className="Content-right">
-                    <div className="up">
+                    <div className="up" style={{fontWeight:"600"}}>
                         {language === LANGUAGE.VI ? nameVi : nameEn}
                     </div>
                     <div className="down">
-                    {isShowDescriptionDoctor === true ?
+                        {isShowDescriptionDoctor === true ?
                     <>
                     {dataProfile && dataProfile.Markdown && dataProfile.Markdown.description 
                         &&
@@ -104,6 +105,12 @@ class ProfileDoctor extends Component {
                     </div>
                 </div>
             </div>
+            {isShowLinkDetail === true && 
+              <div className="view-detail-doctor">
+                <Link to={`/detail-doctor/${doctorId}`}><FormattedMessage id="patient.profile-doctor.more" /></Link>
+              </div>
+            }
+            {isShowPrice === true &&
             <div className="price">
                 <FormattedMessage id="patient.booking-modal.price" />
                 {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGE.VI &&
@@ -126,6 +133,7 @@ class ProfileDoctor extends Component {
                     />
                 }
             </div>
+            }
         </div>
       </>
     );
